@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { BookListItemComponent } from './components/book-list-item/book-list-item.component';
+import { BookDetailsComponent } from "./components/book-details/book-details.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         BookListComponent,
-        BookListItemComponent
+        BookListItemComponent,
+        BookDetailsComponent        
     ],
     imports: [
         CommonModule,

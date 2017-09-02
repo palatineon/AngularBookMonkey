@@ -1,9 +1,9 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Book, Thumbnail } from '../../shared/book';
 
 @Component({
-    selector: 'app-book_list',
+    selector: 'app-book-list',
     templateUrl: '../book-list/book-list.component.html',
     
     //styleUrls: ['../../../styles/font_awesome_scss/font-awesome.scss']
@@ -13,10 +13,17 @@ import { Book, Thumbnail } from '../../shared/book';
 export class BookListComponent implements OnInit
 {
     books: Book[];
+
+    @Output() showDetailsEvent = new EventEmitter<Book>();
+
+    showDetails(book: Book) {
+        this.showDetailsEvent.emit(book);
+    }
+
     /** book_list ctor */
     //constructor() { }
 
-    /** Called by Angular after book_list component initialized */
+    /** Called by Angular after book-list component is initialized */
     ngOnInit(): void {
         this.books = [
             new Book('9783864903571', 'Angular', [' Johannes Hoppe', 'Danny Koppenhagen', 'Ferdinand Malcher', 'Gregor Woiwode'], new Date(2017, 3, 1),
